@@ -30,6 +30,8 @@ export const useUserStore = defineStore({
     // 按钮级别权限
     permissions:
       storageLocal().getItem<DataInfo<number>>(userKey)?.permissions ?? [],
+    // 前端生成的验证码（按实际需求替换）
+    verifyCode: "",
     // 是否勾选了登录页的免登录
     isRemembered: false,
     // 登录页的免登录存储几天，默认7天
@@ -55,6 +57,10 @@ export const useUserStore = defineStore({
     /** 存储按钮级别权限 */
     SET_PERMS(permissions: Array<string>) {
       this.permissions = permissions;
+    },
+    /** 存储前端生成的验证码 */
+    SET_VERIFYCODE(verifyCode: string) {
+      this.verifyCode = verifyCode;
     },
     /** 存储是否勾选了登录页的免登录 */
     SET_ISREMEMBERED(bool: boolean) {
